@@ -76,6 +76,8 @@ class Generator(nn.Module):
         curr_dim = int(curr_dim / 4)
         
 
+        self.attn1 = Self_Attn( curr_dim, 'relu')
+
         if self.imsize >= 64:
             layer4 = []
             
@@ -100,8 +102,8 @@ class Generator(nn.Module):
 
 #        self.attn1 = Self_Attn( 128, 'relu')
 #        self.attn2 = Self_Attn( 64,  'relu')
-        self.attn1 = Self_Attn( 512, 'relu')
-        self.attn2 = Self_Attn( 256,  'relu')
+        
+        self.attn2 = Self_Attn( curr_dim,  'relu')
 
     def forward(self, z):
         z = z.view(z.size(0), z.size(1), 1, 1)
