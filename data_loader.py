@@ -37,7 +37,7 @@ class Data_Loader():
     
     def load_custom(self):
         transforms = self.transform(True, True, True, False)
-        dataset = dsets.ImageFolder(self.path+"/"+self.dataset, transform=transforms)
+        dataset = dsets.ImageFolder(self.path, transform=transforms)
         return dataset
 
 
@@ -46,8 +46,8 @@ class Data_Loader():
             dataset = self.load_lsun()
         elif self.dataset == 'celeb':
             dataset = self.load_celeb()
-#        elif self.dataset == 'custom':
-        else:
+        elif self.dataset == 'custom':
+#        else:
             dataset = self.load_custom()
 
         loader = torch.utils.data.DataLoader(dataset=dataset,
