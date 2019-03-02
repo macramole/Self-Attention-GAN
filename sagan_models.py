@@ -125,7 +125,7 @@ class Discriminator(nn.Module):
         layer3.append(nn.LeakyReLU(0.1))
         curr_dim = curr_dim * 2
 
-        if self.imsize == 64:
+        if self.imsize >= 64:
             layer4 = []
             layer4.append(SpectralNorm(nn.Conv2d(curr_dim, curr_dim * 2, 4, 2, 1)))
             layer4.append(nn.LeakyReLU(0.1))
