@@ -144,8 +144,8 @@ class Discriminator(nn.Module):
 
         layer2.append(SpectralNorm(nn.Conv2d(curr_dim, curr_dim * 2, 4, 2, 1)))
         layer2.append(nn.LeakyReLU(0.1))
+        curr_dim = curr_dim * 2
         
-#        curr_dim = curr_dim * 2
         layer3.append(SpectralNorm(nn.Conv2d(curr_dim, curr_dim * 2, 4, 2, 1)))
         layer3.append(nn.LeakyReLU(0.1))
         curr_dim = curr_dim * 2
