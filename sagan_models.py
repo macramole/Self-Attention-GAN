@@ -68,7 +68,7 @@ class Generator(nn.Module):
         layer3.append(nn.BatchNorm2d(int(curr_dim / 2)))
         layer3.append(nn.ReLU())
 
-        if self.imsize == 64:
+        if self.imsize >= 64:
             layer4 = []
             curr_dim = int(curr_dim / 2)
             layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
