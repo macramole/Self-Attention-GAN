@@ -142,6 +142,8 @@ class Discriminator(nn.Module):
         layer3.append(nn.LeakyReLU(0.1))
         curr_dim = curr_dim * 2
 
+    self.attn1 = Self_Attn(curr_dim, 'relu')
+
         if self.imsize >= 64:
             layer4 = []
             #64
@@ -161,8 +163,8 @@ class Discriminator(nn.Module):
 
 #        self.attn1 = Self_Attn(256, 'relu')
 #        self.attn2 = Self_Attn(512, 'relu')
-        self.attn1 = Self_Attn(1024, 'relu')
-        self.attn2 = Self_Attn(2048, 'relu')
+        
+        self.attn2 = Self_Attn(curr_dim, 'relu')
 
     def forward(self, x):
         out = self.l1(x)
