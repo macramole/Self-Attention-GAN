@@ -180,6 +180,10 @@ class Trainer(object):
             # Sample images
             if (step + 1) % self.sample_step == 0:
                 fake_images,_,_= self.G(fixed_z)
+                
+                print(fake_images.data.shape)
+                print(denorm(fake_images.data).shape)
+                
                 save_image(denorm(fake_images.data),
                            os.path.join(self.sample_path, '{}_fake.png'.format(step + 1)))
 
