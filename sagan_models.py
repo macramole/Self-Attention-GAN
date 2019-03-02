@@ -76,26 +76,7 @@ class Generator(nn.Module):
             layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
             layer4.append(nn.BatchNorm2d(int(curr_dim / 2)))
             layer4.append(nn.ReLU())
-            #128
-            curr_dim = int(curr_dim / 2)
-            layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
-            layer4.append(nn.BatchNorm2d(int(curr_dim / 2)))
-            layer4.append(nn.ReLU())
-            #256
-            curr_dim = int(curr_dim / 2)
-            layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
-            layer4.append(nn.BatchNorm2d(int(curr_dim / 2)))
-            layer4.append(nn.ReLU())
-            #512
-            curr_dim = int(curr_dim / 2)
-            layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
-            layer4.append(nn.BatchNorm2d(int(curr_dim / 2)))
-            layer4.append(nn.ReLU())
             
-            curr_dim = int(curr_dim / 2)
-            layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
-            layer4.append(nn.BatchNorm2d(int(curr_dim / 2)))
-            layer4.append(nn.ReLU())
             
             
             self.l4 = nn.Sequential(*layer4)
