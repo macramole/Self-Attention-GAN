@@ -111,8 +111,10 @@ class Generator(nn.Module):
         last.append(nn.Tanh())
         self.last = nn.Sequential(*last)
 
-        self.attn1 = Self_Attn( 128, 'relu')
-        self.attn2 = Self_Attn( 64,  'relu')
+#        self.attn1 = Self_Attn( 128, 'relu')
+#        self.attn2 = Self_Attn( 64,  'relu')
+        self.attn1 = Self_Attn( 2048, 'relu')
+        self.attn2 = Self_Attn( 1024,  'relu')
 
     def forward(self, z):
         z = z.view(z.size(0), z.size(1), 1, 1)
