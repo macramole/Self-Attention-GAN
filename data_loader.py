@@ -46,7 +46,8 @@ class Data_Loader():
             dataset = self.load_lsun()
         elif self.dataset == 'celeb':
             dataset = self.load_celeb()
-        elif self.dataset == 'custom':
+#        elif self.dataset == 'custom':
+        else:
             dataset = self.load_custom()
 
         loader = torch.utils.data.DataLoader(dataset=dataset,
