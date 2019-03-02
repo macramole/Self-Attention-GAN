@@ -62,8 +62,8 @@ class Generator(nn.Module):
         layer2.append(nn.BatchNorm2d(int(curr_dim / 2)))
         layer2.append(nn.ReLU())
 
-#        curr_dim = int(curr_dim / 2)
-        curr_dim = int(curr_dim * 4)
+        curr_dim = int(curr_dim / 2)
+#        curr_dim = int(curr_dim * 4)
 
         layer3.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
         layer3.append(nn.BatchNorm2d(int(curr_dim / 2)))
