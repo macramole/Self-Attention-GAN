@@ -37,7 +37,7 @@ class Data_Loader():
     
     def load_custom(self):
         transforms = self.transform(True, True, True, False)
-        dataset = dsets.ImageFolder(self.path+self.dataset, transform=transforms)
+        dataset = dsets.ImageFolder(self.path+"/"+self.dataset, transform=transforms)
         return dataset
 
 
