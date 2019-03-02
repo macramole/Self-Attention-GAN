@@ -70,12 +70,6 @@ class Generator(nn.Module):
         layer3.append(nn.ReLU())
         curr_dim = int(curr_dim / 2)
         
-        layer3.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 4), 4, 2, 1)))
-        layer3.append(nn.BatchNorm2d(int(curr_dim / 2)))
-        layer3.append(nn.ReLU())
-        curr_dim = int(curr_dim / 2)
-        
-
         self.attn1 = Self_Attn( curr_dim, 'relu')
 
         if self.imsize >= 64:
