@@ -170,6 +170,7 @@ class Trainer(object):
 
             # Print out log info
             if (step + 1) % self.log_step == 0:
+                print("log")
                 elapsed = time.time() - start_time
                 elapsed = str(datetime.timedelta(seconds=elapsed))
                 print("Elapsed [{}], G_step [{}/{}], D_step[{}/{}], d_out_real: {:.4f}, "
