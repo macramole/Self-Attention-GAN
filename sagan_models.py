@@ -99,6 +99,11 @@ class Generator(nn.Module):
             layer4.append(nn.ReLU())
             curr_dim = int(curr_dim / 2)
             
+            layer4.append(SpectralNorm(nn.ConvTranspose2d(curr_dim, int(curr_dim / 2), 4, 2, 1)))
+            layer4.append(nn.BatchNorm2d(int(curr_dim / 2)))
+            layer4.append(nn.ReLU())
+            curr_dim = int(curr_dim / 2)
+            
             
             
             self.l4 = nn.Sequential(*layer4)
@@ -114,8 +119,8 @@ class Generator(nn.Module):
 
 #        self.attn1 = Self_Attn( 128, 'relu')
 #        self.attn2 = Self_Attn( 64,  'relu')
-        self.attn1 = Self_Attn( 2048, 'relu')
-        self.attn2 = Self_Attn( 1024,  'relu')
+        self.attn1 = Self_Attn( 1024, 'relu')
+        self.attn2 = Self_Attn( 512,  'relu')
 
     def forward(self, z):
         z = z.view(z.size(0), z.size(1), 1, 1)
