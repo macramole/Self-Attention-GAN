@@ -94,7 +94,7 @@ class Trainer(object):
 
             try:
                 real_images, _ = next(data_iter)
-                print(real_images)
+                print(real_images.shape)
             except:
                 data_iter = iter(self.data_loader)
                 real_images, _ = next(data_iter)
