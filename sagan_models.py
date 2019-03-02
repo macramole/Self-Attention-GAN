@@ -167,8 +167,10 @@ class Discriminator(nn.Module):
         last.append(nn.Conv2d(curr_dim, 1, 4))
         self.last = nn.Sequential(*last)
 
-        self.attn1 = Self_Attn(256, 'relu')
-        self.attn2 = Self_Attn(512, 'relu')
+#        self.attn1 = Self_Attn(256, 'relu')
+#        self.attn2 = Self_Attn(512, 'relu')
+        self.attn1 = Self_Attn(1024, 'relu')
+        self.attn2 = Self_Attn(2048, 'relu')
 
     def forward(self, x):
         out = self.l1(x)
