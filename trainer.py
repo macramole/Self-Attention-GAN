@@ -94,10 +94,11 @@ class Trainer(object):
 
             try:
                 real_images, _ = next(data_iter)
+                print(real_images)
             except:
                 data_iter = iter(self.data_loader)
                 real_images, _ = next(data_iter)
-                print(real_images)
+                
 
             # Compute loss with real images
             # dr1, dr2, df1, df2, gf1, gf2 are attention scores
