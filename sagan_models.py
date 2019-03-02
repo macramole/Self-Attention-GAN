@@ -101,7 +101,7 @@ class Generator(nn.Module):
 #        self.attn1 = Self_Attn( 128, 'relu')
 #        self.attn2 = Self_Attn( 64,  'relu')
         self.attn1 = Self_Attn( 512, 'relu')
-        self.attn2 = Self_Attn( 128,  'relu')
+        self.attn2 = Self_Attn( 256,  'relu')
 
     def forward(self, z):
         z = z.view(z.size(0), z.size(1), 1, 1)
